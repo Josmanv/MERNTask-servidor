@@ -10,9 +10,8 @@ conectarDB();
 //Puerto de la app
 const PORT = process.env.PORT || 4000;
 
-// app.get('/', (req, res) =>{
-//     res.send('Hola Mundo')
-// })
+// Importar rutas
+app.use('/api/usuarios' , require('./routes/usuarios'));
 
 // Arrancar ka app
 app.listen(PORT, () => {
