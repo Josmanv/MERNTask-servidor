@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+// necesario para quitar mensaajes de deprecated
+mongoose.set('useCreateIndex', true);
+
 const UsuariosSchema = mongoose.Schema({
     nombre:{
         type: String,
