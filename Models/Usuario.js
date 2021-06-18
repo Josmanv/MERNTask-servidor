@@ -1,4 +1,8 @@
 const mongoose = require('mongoose');
+/*Si no se especifica, mongodb creará una colección por defecto con el nombre de tu modelo 
+en minusculas y pluralizado. Para crear esta colección con el nombre exacto de tu modelo, podemos 
+uyilizar mongoose.pluralize(null);*/
+mongoose.pluralize(null);
 
 // necesario para quitar mensaajes de deprecated
 mongoose.set('useCreateIndex', true);
