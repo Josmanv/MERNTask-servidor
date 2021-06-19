@@ -4,7 +4,7 @@ en minusculas y pluralizado. Para crear esta colección con el nombre exacto de 
 uyilizar mongoose.pluralize(null);*/
 mongoose.pluralize(null);
 
-// necesario para quitar mensaajes de deprecated
+// necesario para quitar mensajes de deprecated
 mongoose.set('useCreateIndex', true);
 
 const UsuariosSchema = mongoose.Schema({
