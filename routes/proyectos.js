@@ -16,9 +16,18 @@ auth,
 proyectoController.crearProyecto
 );
 
+// Obtener todos los proyectos
 router.get('/',
 auth,
 proyectoController.obtenerProyectos
 );
+
+// Actualizar proyecto mdinate id
+router.put('/:id',
+auth,
+[
+    check('nombre', 'El nombre del proyecto es obligatorio').not().isEmpty()
+],
+proyectoController.actualizarProyecto);
 
 module.exports = router;
