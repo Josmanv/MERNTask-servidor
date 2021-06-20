@@ -18,7 +18,7 @@ const TareaSchema = mongoose.Schema({
     },
     proyecto:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'proyectos' // esta referecncia debe ser el nombre de la colección, en este caso la llamé proyectos
+        ref: 'proyectos' // esta referencia debe ser el nombre de la colección, en este caso la llamé proyectos
     }  
 });
 
