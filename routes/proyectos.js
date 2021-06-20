@@ -22,7 +22,7 @@ auth,
 proyectoController.obtenerProyectos
 );
 
-// Actualizar proyecto mdinate id
+// Actualizar proyecto mediante su id
 router.put('/:id',
 auth,
 [
