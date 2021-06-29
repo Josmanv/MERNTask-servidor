@@ -108,7 +108,7 @@ exports.eliminarTarea = async (req, res) => {
 
     try {
 
-        const {proyecto} = req.body;
+        const {proyecto} = req.query;
 
         // Revisar si la terea existe o no
 
