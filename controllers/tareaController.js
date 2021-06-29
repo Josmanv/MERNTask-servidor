@@ -18,7 +18,7 @@ exports.crearTarea = async (req, res) => {
         const {proyecto} = req.body;
         const existeProyecto = await Proyecto.findById(proyecto);
         if(!existeProyecto){
-            res.status(404).json({msg: 'Proyecto no encontrado'});
+            return res.status(404).json({msg: 'Proyecto no encontrado'});
         }
 
         // Revisar si el proyecto actual pertencce al usuario autenticado
@@ -29,7 +29,7 @@ exports.crearTarea = async (req, res) => {
         // Creamos la tarea
         const tarea = new Tarea(req.body);
         await tarea.save();
-        res.json({tarea});
+        return res.json({tarea});
 
      } catch (error) {
         console.log(error);
@@ -43,10 +43,10 @@ exports.crearTarea = async (req, res) => {
 exports.obtenerTareas = async (req, res) => {
     try {
 
-        const {proyecto} = req.body;
+        const {proyecto} = req.query;
         const existeProyecto = await Proyecto.findById(proyecto);
         if(!existeProyecto){
-            res.status(404).json({msg: 'Proyecto no encontrado'});
+            return res.status(404).json({msg: 'Proyecto no encontrado'});
         }
 
         // Revisar si el proyecto actual pertencce al usuario autenticado
@@ -56,14 +56,13 @@ exports.obtenerTareas = async (req, res) => {
 
         // Obtener las tareas por proyecto
         const tareas = await Tarea.find({proyecto}).sort({fechaCreacion: -1});
-        res.json({ tareas });
+        return res.json({ tareas });
 
     } catch (error) {
         console.log(error);
         res.status(500).send("Ha ocurrido un error");
     }
 }
-
 
 // Actualizar una tarea
 
