@@ -5,13 +5,19 @@ const cors = require('cors');
 //Crear el servidor
 const app = express();
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "domain"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
+    next();
+  });
+
 
 // conectar a la base de datos
 conectarDB();
 
 // Habilitar cors
-app.use(cors({ credentials: true, origin: true }));
-app.options("*", cors());
+app.use(cors());
 
 // Habilitsr express.json
 app.use(express.json({extend: true}));
