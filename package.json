@@ -8,7 +8,8 @@
     "dev": "nodemon ."
   },
   "engines": {
-    "node": "16.0.0"
+    "node": "16.0.0",
+    "npm": "7.16.0"
  },
   "repository": {
     "type": "git",
