@@ -47,11 +47,11 @@ exports.crearUsuario = async (req, res) => {
             if(error) throw error;
             
             // Esto es lo mismo que res.json({ token: token }); llave y valor se llaman igual
-            res.json({ token }); 
+            return res.json({ token }); 
         });
 
     } catch (error) {
         console.log(error);
-        res.status(400).send("Ha ocurrido un error");
+        return res.status(400).send("Ha ocurrido un error");
     }
 }

@@ -44,13 +44,13 @@ exports.autenticarUsuario = async (req, res) => {
             if(error) throw error;
             
             // Esto es lo mismo que res.json({ token: token }); llave y valor se llaman igual
-            res.json({ token }); 
+           return res.json({ token }); 
         });
 
         
     } catch (error) {
         console.log(error);
-        res.status(400).send("Ha ocurrido un error");
+        return res.status(400).send("Ha ocurrido un error");
     }
 }
 
@@ -59,9 +59,9 @@ exports.usuarioAutenticado = async (req, res) => {
 
     try {
         const usuario = await Usuario.findById(req.usuario.id).select('-password');
-        res.json({usuario});
+        return res.json({usuario});
     } catch (error) {
         console.log(error);
-        res.status(500).json({msg:'Ha ocurrido un error'});
+        return res.status(500).json({msg:'Ha ocurrido un error'});
     }
 }
