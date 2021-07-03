@@ -50,7 +50,6 @@ exports.autenticarUsuario = async (req, res) => {
         
     } catch (error) {
         console.log(error);
-        return res.status(400).send("Ha ocurrido un error");
     }
 }
 
@@ -59,9 +58,9 @@ exports.usuarioAutenticado = async (req, res) => {
 
     try {
         const usuario = await Usuario.findById(req.usuario.id).select('-password');
-        return res.json({usuario});
+        res.json({usuario});
     } catch (error) {
         console.log(error);
-        return res.status(500).json({msg:'Ha ocurrido un error'});
+        res.status(500).json({msg:'Ha ocurrido un error'});
     }
 }
